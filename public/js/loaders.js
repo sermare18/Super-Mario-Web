@@ -11,6 +11,7 @@ export function loadImage(url) {
 }
 
 export function loadLevel(name) {
+    // la función fetch se utiliza para cargar un archivo JSON de forma asíncrona desde una URL específica. 
     return fetch(`/levels/${name}.json`)
     .then(r => r.json());
 }
