@@ -14,6 +14,7 @@ export default class Entity {
     constructor() {
         this.pos = new Vec2(0, 0);
         this.vel = new Vec2(0, 0);
+        this.size = new Vec2(0, 0);
 
         // A trait is a instance of a class that can operate on the Entity. COMPOSITION
         this.traits = [];
