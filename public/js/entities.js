@@ -6,6 +6,7 @@ import { loadMarioSprites } from './sprites.js';
 
 
 export function createMario() {
+    // Carga los sprites predefinidos de Mario
     return loadMarioSprites()
     .then(sprites => {
         const mario = new Entity();
@@ -16,7 +17,7 @@ export function createMario() {
         // mario.addTrait(new Velocity());
 
         mario.draw = function drawMario(context) {
-            sprites.draw('idle', context, this.pos.x, this.pos.y);
+            sprites.draw('idle', context, 0, 0);
         }
 
         return mario;

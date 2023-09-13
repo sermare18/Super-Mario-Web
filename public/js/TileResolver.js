@@ -12,7 +12,9 @@
         return Math.floor(pos / this.tileSize);
     }
 
+    // Devuelve rango de indices (tiles) entre dos posiciones (pixeles).
     toIndexRange(pos1, pos2) {
+        // pMax será la posición pos2 redondeada hacia arriba al múltiplo de this.tileSize más cercano.
         const pMax = Math.ceil(pos2 / this.tileSize) * this.tileSize;
         const range = [];
         let pos = pos1;
