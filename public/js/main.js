@@ -31,9 +31,9 @@ Promise.all([
     mario.pos.set(64, 64);
 
     // Comentar si queremos desactivar el collision layer
-    level.comp.layers.push(
-        createCollisionLayer(level),
-        createCamaraLayer(camera));
+    // level.comp.layers.push(
+    //     createCollisionLayer(level),
+    //     createCamaraLayer(camera));
 
     level.entities.add(mario);
 
