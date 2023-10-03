@@ -1,6 +1,7 @@
-export function createBackgroundLayer(level, sprites) {
-    const tiles = level.tiles;
-    const resolver = level.tileCollider.tiles; 
+import TileResolver from "./TileResolver.js";
+
+export function createBackgroundLayer(level, tiles, sprites) {
+    const resolver = new TileResolver(tiles);
 
     const buffer = document.createElement('canvas');
     buffer.width = 256 + 16;
@@ -8,7 +9,6 @@ export function createBackgroundLayer(level, sprites) {
 
     const context = buffer.getContext('2d');
 
-    let startIndex, endIndex;
     // En tu función redraw(startIndex, endIndex), estás recorriendo las columnas de la matriz desde startIndex hasta endIndex. 
     // Sin embargo, cuando dibujas los tiles en el buffer, quieres que el primer tile que dibujas (en la columna startIndex) aparezca 
     // en la posición x=0 del buffer. Por eso restas startIndex de x al dibujar.
@@ -16,14 +16,8 @@ export function createBackgroundLayer(level, sprites) {
     // Por ejemplo, si tu matriz tiene 100 columnas y estás redibujando desde la columna 30 hasta la 39, entonces quieres que la columna 30 
     // se dibuje en la posición x=0 del buffer, la columna 31 en la posición x=1, y así sucesivamente. 
     // Al restar startIndex (en este caso, 30) de x, consigues este ajuste.
-    function redraw(drawFrom, drawTo) {
-
-        startIndex = drawFrom;
-        endIndex = drawTo;
-
-        // console.log('Redrawing', -camera.pos.x % 16);
-        // console.log('startIndex:', startIndex);
-
+    function redraw(startIndex, endIndex) {
+        context.clearRect(0, 0, buffer.width, buffer.height);
         // Vamos iterando sobre las columnas de la Matrix
         for (let x = startIndex; x <= endIndex; ++x) {
             const col = tiles.grid[x];
