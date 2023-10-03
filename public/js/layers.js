@@ -39,7 +39,6 @@ export function createBackgroundLayer(level, sprites) {
         }
     }
 
-    // minuto: 47
     return function drawBackgroundLayer(context, camera) {
         const drawWidth = resolver.toIndex(camera.size.x);
         const drawFrom = resolver.toIndex(camera.pos.x);

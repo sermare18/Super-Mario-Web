@@ -9,6 +9,9 @@ import { setupMouseControl } from './debug.js';
 const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
+// Comentario yt (Quitar más tardealu)
+context.imageSmoothingEnabled = false;
+
 // Promise.all() es un método estático de la clase Promise en JavaScript que toma un iterable de promesas como entrada y devuelve
 // una sola promesa. Esta promesa devuelta se cumple cuando todas las promesas de entrada se cumplen (incluyendo cuando se pasa un 
 // iterable vacío), con un array de los valores de cumplimiento.
@@ -46,6 +49,10 @@ Promise.all([
 
     timer.update = function update(deltaTime) {
             level.update(deltaTime);
+
+            if (mario.pos.x > 100) {
+                camera.pos.x = mario.pos.x - 100;
+            }
 
             level.comp.draw(context, camera);
     }
