@@ -23,7 +23,7 @@ export function loadLevel(name) {
 
             levelSpec.layers.forEach(layer => {
                 const backgroundGrid = createBackgroundGrid(layer.tiles, levelSpec.patterns);
-                const backgroundLayer = createBackgroundLayer(level,backgroundGrid, backgroundSprites);
+                const backgroundLayer = createBackgroundLayer(level, backgroundGrid, backgroundSprites);
                 level.comp.layers.push(backgroundLayer);
             });
 
