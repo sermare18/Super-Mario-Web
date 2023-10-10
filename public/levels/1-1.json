@@ -626,6 +626,26 @@
         {
             "name": "goomba",
             "pos": [220, 0]
+        },
+        {
+            "name": "koopa",
+            "pos": [660, 0]
+        },
+        {
+            "name": "goomba",
+            "pos": [920, 0]
+        },
+        {
+            "name": "goomba",
+            "pos": [960, 0]
+        },
+        {
+            "name": "goomba",
+            "pos": [1000, 0]
+        },
+        {
+            "name": "koopa",
+            "pos": [2900, 0]
         }
     ]
 }

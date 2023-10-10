@@ -19,26 +19,19 @@ export default class Level {
     }
 
     update(deltaTime) {
+        // Update
         this.entities.forEach(entity => {
             entity.update(deltaTime, this);
-
-            entity.pos.x += entity.vel.x * deltaTime;
-            if (entity.canCollide) {
-                this.tileCollider.checkX(entity);
-            }
-
-            entity.pos.y += entity.vel.y * deltaTime;
-            if (entity.canCollide) {
-                this.tileCollider.checkY(entity);
-            }
-
-            entity.vel.y += this.gravity * deltaTime;
         });
 
+        // Test Collision
         this.entities.forEach(entity => {
-            if (entity.canCollide) {
-                this.entityCollider.check(entity);
-            }
+            this.entityCollider.check(entity);
+        });
+
+        // Finalize
+        this.entities.forEach(entity => {
+            entity.finalize();
         });
 
         this.totalTime += deltaTime;

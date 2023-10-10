@@ -18,5 +18,10 @@ export default class PlayerController extends Trait {
             this.player.pos.set(this.checkpoint.x, this.checkpoint.y);
             level.entities.add(this.player);
         }
+
+        // Añadido por mi, por si mario se cae al vacío.
+        if(this.player.pos.y > 240) {
+            this.player.pos.set(this.checkpoint.x, this.checkpoint.y);
+        }
     }
 }

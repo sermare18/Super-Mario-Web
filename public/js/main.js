@@ -21,7 +21,7 @@ function createPlayerEnv(playerEntity) {
 async function main(canvas) {
 
     const context = canvas.getContext('2d');
-    // Comentario yt (Quitar más tardealu)
+    // Comentario yt (Quitar más tarde)
     context.imageSmoothingEnabled = false;
     const entityFactory = await loadEntities();
     const loadLevel = await createLevelLoader(entityFactory);
@@ -30,9 +30,9 @@ async function main(canvas) {
     const camera = new Camera();
 
     // Comentar si queremos desactivar el collision layer
-    level.comp.layers.push(
-        createCollisionLayer(level),
-        /* createCamaraLayer(camera) */);
+    // level.comp.layers.push(
+    //     createCollisionLayer(level),
+    //     /* createCamaraLayer(camera) */);
 
     const mario = entityFactory.mario();
 
@@ -42,7 +42,7 @@ async function main(canvas) {
     const input = setupKeyboard(mario);
     input.listenTo(window);
 
-    setupMouseControl(canvas, mario, camera);
+    // setupMouseControl(canvas, mario, camera);
 
     const timer = new Timer(1/60);
 
