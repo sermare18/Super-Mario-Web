@@ -36,7 +36,7 @@ function setupEntities(levelSpec, level, entityFactory) {
 export function createLevelLoader(entityFactory) {
     return function loadLevel(name) {
         // la función fetch se utiliza para cargar un archivo JSON de forma asíncrona desde una URL específica. 
-        return loadJSON(`/levels/${name}.json`)
+        return loadJSON(`/public/levels/${name}.json`)
         .then(levelSpec => Promise.all([
             levelSpec,
             loadSpriteSheet(levelSpec.spriteSheet)
